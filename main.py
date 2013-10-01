@@ -20,15 +20,17 @@ def scramble():
     t = range(20)
     i = 0
     for i in t:
-    sc = sc + random.choice(r) + ' '
+        sc = sc + random.choice(r) + ' '
     stdscr.addstr(11, 15, 'Your scrumble')
     stdscr.addstr(12, 12, sc)
+
 stdscr = curses.initscr()
 stdscr.border(0)
-
 scramble()
-clrscr()
+stdscr.addstr(13, 15, 'Press any key for start and then - for stop')
+stdscr.getch()
 timerstart()
 timerstop()
+stdscr.addstr(14, 15, str(scurrent_time))
+stdscr.getch()
 curses.endwin()
-
