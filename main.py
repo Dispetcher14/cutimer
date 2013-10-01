@@ -4,15 +4,14 @@ current_time = time.time()
 scurrent_time = time.time()
 
 def timerstart():
-    stdscr = curses.initscr()
     c = stdscr.getch()
-    curses.endwin()
     current_time = time.time()
-
+def clrscr():
+	stdscr.clear()
+	xi = 1
+	yi = 1
 def timerstop():
-    stdscr = curses.initscr()
     c = stdscr.getch()
-    curses.endwin()
     scurrent_time = current_time - time.time()
 
 def scramble():
@@ -22,10 +21,14 @@ def scramble():
     i = 0
     for i in t:
 		sc = sc + random.choice(r) + ' '
-    print sc
+    stdscr.addstr(11, 15, 'Your scrumble')
+    stdscr.addstr(12, 12, sc)
+stdscr = curses.initscr()
+stdscr.border(0)
 
 scramble()
+clrscr()
 timerstart()
 timerstop()
-print scurrent_time
-raw_input()
+curses.endwin()
+
