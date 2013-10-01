@@ -20,7 +20,7 @@ def scramble():
     t = range(20)
     i = 0
     for i in t:
-		sc = sc + random.choice(r) + ' '
+    sc = sc + random.choice(r) + ' '
     stdscr.addstr(11, 15, 'Your scrumble')
     stdscr.addstr(12, 12, sc)
 stdscr = curses.initscr()
