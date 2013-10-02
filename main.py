@@ -1,18 +1,16 @@
 # -*- coding: utf-8 -*-
-import curses, time, random
-current_time = time.time()
-scurrent_time = time.time()
+import curses, datetime, random
 
 def timerstart():
-    c = stdscr.getch()
-    current_time = time.time()
+    return datetime.datetime.now()
+
 def clrscr():
 	stdscr.clear()
 	xi = 1
 	yi = 1
-def timerstop():
-    c = stdscr.getch()
-    scurrent_time = current_time - time.time()
+	
+def timerstop(d):
+    return datetime.datetime.now() - d
 
 def scramble():
     sc = ''
@@ -29,8 +27,8 @@ stdscr.border(0)
 scramble()
 stdscr.addstr(13, 15, 'Press any key for start and then - for stop')
 stdscr.getch()
-timerstart()
-timerstop()
-stdscr.addstr(14, 15, str(scurrent_time))
+w = timerstart()
+stdscr.getch()
+stdscr.addstr(14, 15, str(timerstop(w)))
 stdscr.getch()
 curses.endwin()
